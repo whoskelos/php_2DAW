@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(224, 212, 245);
+            font-family: sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        input {
+            width: 95%;
+        }
+        .texto{
+            margin-left: 15px;
+        }
+        .texto label{
+            font-weight: bold;
+        }
+        .botones{
+            
+            margin-left: 15px;
+        }
+        .botones button{
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            padding: 5.5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>VALIDACION DE ENTRADA DE TEXTO</h1>
+    <form action="ejercicio2.php" method="post">
+        
+        <div class="texto">
+            <label for="texto">Escriba algo:</label>
+            <input type="text" name="texto" id="texto">
+        </div>
+        <br>
+        <div class="botones">
+            <button type="submit">Enviar</button>
+            <button type="reset">Borrar</button>
+        </div>
+
+    </form>
+</body>
+
+</html>

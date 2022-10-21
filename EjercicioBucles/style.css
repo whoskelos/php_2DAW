@@ -1,0 +1,10 @@
+.contenedor{
+    display: flex;
+    flex-direction: column;
+}
+.titulo h1{
+    text-align: center;
+}
+.form{
+    display: flex;
+}
