@@ -24,7 +24,7 @@
 
     <body>
         <h1>Datos Personales 3(Formulario)</h1>
-        <form action="" method="POST">
+        <form action="ejercicio2.php" method="POST">
             <table>
                 <tr>
                     <td>
@@ -41,6 +41,22 @@
                 </tr>
             </table>
         </form>
+        <?php
+        if (isset($_REQUEST['enviar'])) {
+            include 'sanear.php';
+            $errores = [];
+            if (isset($_REQUEST['sexo']) && $_REQUEST['sexo'] != null) {
+                $sexo = sanear("sexo");
+                echo "<h3>Es un/una $sexo</h3>";
+            }else {
+                $errores[] = "No ha seleccionado ningún sexo";
+                foreach ($errores as $key => $value) {
+                    echo "<h3 class='error'>$value</h3>";
+                    header("Refresh:2; url=ejercicio2.php");
+                }
+            }
+        }
+        ?>
     </body>
 
     </html>
