@@ -1,0 +1,78 @@
+<?php
+if (isset($_POST['enviar'])) {
+    include ("sanear.php");
+    $txtCancion = sanear("txtCancion");
+    if (isset($_POST['tipoBusqueda'])) {
+        $tipoBusqueda = sanear("tipoBusqueda");
+    }
+    if (isset($_POST['genMusical'])) {
+        $genMusical = $_POST['genMusical'];
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+    <style>
+        h1 {
+            color: #189DFE;
+        }
+        h3 {
+            font-style: italic;
+        }
+        .divForm {
+            border: 3px dotted #189DFE;
+        }
+        form {
+            padding: 8px;
+        }
+        .error {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario simple</h1>
+    <h3>Busqueda de canciones</h3>
+
+    <div class="divForm">
+        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+            <table>
+                <tr>
+                    <td><strong>Texto a buscar:</strong></td>
+                    <td><input type="text" name="txtCancion"></td>
+                </tr>
+                <tr>
+                    <td><label for="tipoBusqueda"><strong>Buscar en:</strong></label></td>
+                    <td>
+                        <input type="radio" name="tipoBusqueda" id="tipoBusqueda" value="titulo">Titulos de cancion
+                        <input type="radio" name="tipoBusqueda" id="tipoBusqueda" value="album">Nombres de album
+                        <input type="radio" name="tipoBusqueda" id="tipoBusqueda" value="ambos">Ambos campos
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="genMusical"><strong>Genero Musical:</strong></label></td>
+                    <td>
+                        <select name="genMusical" id="genMusical">
+                            <option value="Todos">Todos</option>
+                            <option value="Acustica">Acustica</option>
+                            <option value="Banda Sonora">Banda Sonora</option>
+                            <option value="Blues">Blues</option>
+                            <option value="Electronica">Electronica</option>
+                            <option value="Folk">Folk</option>
+                            <option value="Jazz">Jazz</option>
+                            <option value="New Age">New Age</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="Buscar" name="enviar">
+        </form>
+    </div>
+    <?php include("validar-form-3.php") ?>
+</body>
+</html>
