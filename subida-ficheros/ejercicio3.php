@@ -18,6 +18,8 @@
 
         .error {
             color: #ff0000;
+            font-weight: bold;
+            text-transform: uppercase;
         }
     </style>
 </head>
@@ -30,7 +32,7 @@
             <tr>
                 <td><label for="tipoVivienda">Tipo de vivienda</label></td>
                 <td>
-                    <select name="tipoVivienda " id="tipoVivienda">
+                    <select name="tipoVivienda" id="tipoVivienda">
                         <option value="piso">Piso</option>
                         <option value="piso">Chalet</option>
                     </select>
@@ -82,8 +84,9 @@
                 <td><textarea name="obsVivienda" id="obsVivienda" cols="30" rows="10"></textarea></td>
             </tr>
         </table>
-        <input type="submit" value="Insertar vivienda">
+        <input type="submit" value="Insertar vivienda" name="enviar">
     </form>
+    <?php include("validar-form-3.php") ?>
 </body>
 
 </html>
