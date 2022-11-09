@@ -30,23 +30,19 @@ página. Para ello necesitamos crear un archivo de texto vacío llamado
 
     <?php
         if (isset($_POST['enviar'])) {
-            // //abrimos nuevo fichero
-            // $fichero = fopen("contador.txt","w");
-            // //variable contador = 0
-            // static $cont = 0;
-            // if(fwrite($fichero,$cont)) {
-            //     echo "<p><strong>Contador:</strong> $cont</p>";
-            //     $cont++;
-            // } 
-            $cont = contador();
-            echo "<p>$cont</p>";
-        }
-
-        function contador (){
-            static $cont = 0;
-            $cont++;
-            return $cont;
-
+            //abrimos fichero
+            $fichero = fopen("contador.txt","r");
+            //variable contador = 0
+            $cont = fgets($fichero); //leemos el fichero
+            fclose($fichero); //Cerramos lecutra del fichero
+            $cont++; //aumentamos el valor de $cont del fichero
+            //abrimos fichero
+            $fichero = fopen("contador.txt","w"); 
+            //escribimos en el fichero el nuevo valor
+            if(fwrite($fichero,$cont)) {
+                echo "<p><strong>Contador:</strong> $cont</p>";
+                fclose($fichero);
+            }
         }
     ?>
 </body>
