@@ -1,0 +1,8 @@
+ARCHIVO: favorito.png 
+ARCHIVO: idea_logo.psd 
+ARCHIVO: logged.png 
+ARCHIVO: logo_01.png 
+ARCHIVO: lupa_00.png 
+ARCHIVO: ordenadores.png 
+ARCHIVO: user.png 
+
