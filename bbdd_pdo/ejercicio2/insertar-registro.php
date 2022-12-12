@@ -44,17 +44,24 @@ if (isset($_POST['enviar'])) {
         include "conexion.php";
         $db = conectaDB();
         $db->query("use agenda");
-        $consulta = $db->prepare("INSERT INTO `personas` (nombre,apellidos,direccion,telefono) VALUES (?,?,?,?)");
-        $result = $consulta->execute(array($txtNombre,$txtApellidos,$txtDireccion,$txtTelefono));
-
-        if ($result == true) {
-            echo "<p class='fw-bold mt-2'>Registro: $txtNombre $txtApellidos </p>";
-            echo "<div class='alert alert-success mt-2'>Registro creado correctamente</div>";
+        $resultado = $db->query("SELECT * FROM `personas` WHERE telefono = $txtTelefono OR nombre = '$txtNombre'");
+        if ($resultado->rowCount() > 0) {
+            echo "<div class='alert alert-danger mt-2'>El registro ya existe</div>";
+            header("Refresh:2;url=insertar.php");
+        }else {
+            $consulta = $db->prepare("INSERT INTO `personas` (nombre,apellidos,direccion,telefono) VALUES (?,?,?,?)");
+            $result = $consulta->execute(array($txtNombre,$txtApellidos,$txtDireccion,$txtTelefono));
+    
+            if ($result == true) {
+                echo "<div class='alert alert-success mt-2'>Registro: $txtNombre $txtApellidos creado correctamente</div>";
+                header("Refresh:2;url=insertar.php");
+            }
         }
 
     }else {
         foreach ($errores as $error ) {
             echo "<div class='alert alert-danger mt-2'>". $error ."</div>";
+            header("Refresh:3;url=insertar.php");
         }
     }
 }

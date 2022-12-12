@@ -19,6 +19,7 @@ if (!isset($_SESSION['login'])) {
         <div class="row p-3">
             <div class="col">
                 <h1 class="text-center">Bienvenido <?php echo $_SESSION['login'] ?></h1>
+                <a class="btn btn-danger" href="cerrar-sesion.php" role="button">Cerrar Sesion</a>
             </div>
         </div>
         <div class="row p-3">
