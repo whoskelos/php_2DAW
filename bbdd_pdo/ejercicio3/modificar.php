@@ -34,13 +34,13 @@ $result = $db->query($sql);
             <div class="col">
                 <?php
                 if ($result->rowCount() == 0) {
-                    echo "<p class=fs-4>No hay registros para eliminar</p>";
+                    echo "<p class=fs-4>No hay registros para modificar</p>";
                 } else {
                     $registros = $db->query("SELECT * FROM `personas`")->fetchAll(PDO::FETCH_OBJ);
-                    echo "<form method='POST'><table class='table'>
+                    echo "<form action='accion-modificar.php' method='POST'><table class='table'>
                     <thead class='bg-dark text-white'>
                         <tr>
-                            <th scope='col'>Borrar</th>
+                            <th scope='col'>Modificar</th>
                             <th scope='col'>Nombre</th>
                             <th scope='col'>Apellidos</th>
                         </tr>
@@ -48,18 +48,15 @@ $result = $db->query($sql);
                     <tbody>";
                     foreach ($registros as $persona) : ?>
                         <tr>
-                            <td><input type="checkbox" name="borrados[]" id="<?php echo $persona->id_persona ?>" value="<?php echo $persona->id_persona ?>"></td>
+                            <td><input type="radio" name="aModificar" id="<?php echo $persona->id_persona ?>" value="<?php echo $persona->id_persona ?>"></td>
                             <td><?php echo $persona->nombre ?></td>
                             <td><?php echo $persona->apellidos ?></td>
                         </tr>
                 <?php
                     endforeach;
                     echo "</tbody>
-                    </table><button type='submit' class='btn btn-warning' name='enviar'>Borrar Registro</button></form>";
+                    </table><button type='submit' class='btn btn-warning' name='enviar'>Modifcar Registro</button></form>";
                 } ?>
-            </div>
-            <div class="col">
-                <?php include "borrar-registro.php"; ?> 
             </div>
         </div>
     </div>
