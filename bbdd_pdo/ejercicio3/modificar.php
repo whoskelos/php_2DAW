@@ -56,6 +56,14 @@ $result = $db->query($sql);
                     endforeach;
                     echo "</tbody>
                     </table><button type='submit' class='btn btn-warning' name='enviar'>Modifcar Registro</button></form>";
+                    if (isset($_GET['updated'])) {
+                        echo "<div class='alert alert-success mt-2'>Cambios realizados correctamente</div>";
+                        header("Refresh:2;url=modificar.php");
+                    }
+                    if (isset($_GET['exists'])) {
+                        echo "<div class='alert alert-danger mt-2'>El registro ya existe</div>";
+                        header("Refresh:2;url=modificar.php");
+                    }
                 } ?>
             </div>
         </div>

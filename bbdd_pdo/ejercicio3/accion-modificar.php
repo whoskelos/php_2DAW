@@ -56,7 +56,7 @@
                             </div>
                             <input type="hidden" name="id_persona" value="<?php echo $persona->id_persona ?>">
                             <button type="submit" class="btn btn-primary" name="enviar">Modificar</button>
-                            <button type="reset" class="btn btn-secondary" name="enviar">Reiniciar formulario</button>
+                            <button type="reset" class="btn btn-secondary" >Reiniciar formulario</button>
                         </form>
                 <?php } else {
                         echo "<p class='fw-bold text-danger'>No se ha marcado ningún registro para modificar</p>";

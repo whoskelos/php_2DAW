@@ -22,7 +22,7 @@ if (isset($_POST['enviar'])) {
     }
 
     if (empty($errores)) {
-        include 'conexion.php';
+        //include 'conexion.php';
         $db = conectaDB();
         $db->query("USE agenda");
         //preparamos la consulta

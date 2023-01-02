@@ -3,6 +3,11 @@ session_start();
 if (!isset($_SESSION['login'])) {
     header("Location:login.php");
 }
+include "conexion.php";
+$db = conectaDB();
+$db->query("use agenda");
+$sql = "SELECT * FROM personas";
+$result = $db->query($sql);
 ?>
 <!doctype html>
 <html lang="es">
@@ -28,6 +33,10 @@ if (!isset($_SESSION['login'])) {
     <div class="container">
         <div class="row">
             <div class="col-6">
+                <?php
+                if ($result->rowCount() == 0) {
+                    echo "<p class=fs-4>No hay registros</p>";
+                }else{?>
                 <form action="" method="post">
                     <div class="mb-3">
                         <label for="txtNombre" class="form-label">Nombre</label>
@@ -43,6 +52,7 @@ if (!isset($_SESSION['login'])) {
                     </div>
                 </form>
                 <div class="mb-3">
+                <?php } ?>
                     <?php include "accion-buscar.php"; ?>
                 </div>
             </div>

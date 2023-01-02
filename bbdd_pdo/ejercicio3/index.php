@@ -30,6 +30,7 @@ if (!isset($_SESSION['login'])) {
                     <a href="insertar.php" class="list-group-item list-group-item-action">Insertar Registros</a>
                     <a href="listar.php" class="list-group-item list-group-item-action">Listado</a>
                     <a href="borrar.php" class="list-group-item list-group-item-action">Borrar un registro</a>
+                    <a href="borrar-todo.php" class="list-group-item list-group-item-action">Borrar base de datos</a>
                 </div>
             </div>
         </div>
